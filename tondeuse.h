@@ -17,16 +17,18 @@
 
 /**
  * L = limite
- * H = herbe
  * X = obstacle
+ * H = herbe haute
+ * C = herbe coupée
  */
-enum TERRAIN {L, X, H};
+enum TERRAIN {L, X, H, C};
 
 using Terrain = std::vector<std::vector<TERRAIN>>;
-using Tondeuse = std::array<int, 2>;
+using Coordonnee = std::array<int, 2>;
+using Tondeuse = Coordonnee;
 
-void tondre(const Terrain& terrain,
-            const Tondeuse& tondeuse,
+void tondre(Terrain& terrain,
+            Tondeuse& tondeuse,
             int nombreDePas,
             bool afficherChaquePas);
 

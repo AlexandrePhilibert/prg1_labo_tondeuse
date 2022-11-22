@@ -12,4 +12,6 @@
 #ifndef PRG1_LABO_TONDEUSE_ANNEXE_H
 #define PRG1_LABO_TONDEUSE_ANNEXE_H
 
+int random(int min, int max);
+
 #endif //PRG1_LABO_TONDEUSE_ANNEXE_H
