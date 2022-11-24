@@ -10,8 +10,16 @@
 // -----------------------------------------------------------------------------------------------
 
 #ifndef PRG1_LABO_TONDEUSE_ANNEXE_H
-#define PRG1_LABO_TONDEUSE_ANNEXE_H
+    #define PRG1_LABO_TONDEUSE_ANNEXE_H
 
-int random(int min, int max);
+    /** Fonction permettant de générer un nombre aléatoire entre un nombre minimal et un nombre maximal
+     * -----------------------------------------------------------------------------------------------------------------
+     * @param min               : correspond à la valeur minimal que le chiffre aléatoire peut avoir
+     * @param max               : correspond à la valeur maximal que le chiffre aléatoire peut avoir
+     * -----------------------------------------------------------------------------------------------------------------
+     * @return                  : un int qui est le chiffre aléatoire généré
+     * @exception               : -
+     */
+    int random(int min, int max);
 
 #endif //PRG1_LABO_TONDEUSE_ANNEXE_H
