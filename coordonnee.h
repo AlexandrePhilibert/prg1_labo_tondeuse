@@ -1,0 +1,8 @@
+//
+// Created by alexandre on 11/24/22.
+//
+
+#ifndef PRG1_LABO_TONDEUSE_COORDONNEE_H
+#define PRG1_LABO_TONDEUSE_COORDONNEE_H
+
+#endif //PRG1_LABO_TONDEUSE_COORDONNEE_H
