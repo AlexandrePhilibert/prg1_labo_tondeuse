@@ -12,7 +12,6 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-// NOTE : Est-ce qu'on inclut le h ?
 #include "tondeuse.h"
 #include "annexe.h"
 
@@ -58,10 +57,10 @@ void afficher(const Terrain& terrain) {
  * @return
  */
 bool estObstacle(const Terrain& terrain, const Coordonnee& coordonnee) {
-   // NOTE: Cast dans le bon type ?
+   // Trouve le type de terrain dans la cellule choisie et test si elle est un obstacle ou pas.
    TERRAIN cellule = terrain[(size_t) coordonnee[0]][(size_t) coordonnee[1]];
 
-   return cellule == L || cellule == X;
+    return cellule == L || cellule == X;
 }
 
 /**
@@ -71,7 +70,7 @@ bool estObstacle(const Terrain& terrain, const Coordonnee& coordonnee) {
  * Un déplacement est jugé valide s'il n'y pas d'obstacle sur sa position.
  *
  * @param terrain Le terrain sur lequel les coordonnées seront validées
- * @param tondeuse La position actuelle de la tondeues dans le terain
+ * @param tondeuse La position actuelle de la tondeuse dans le terrain
  * @return Un vecteur contenant toutes les coordonnées valides de déplacement de la tondeuse
  */
 vector<Coordonnee> deplacementsValide(const Terrain& terrain, const Tondeuse& tondeuse) {
@@ -117,19 +116,19 @@ void tondre(Terrain& terrain,
             Tondeuse& tondeuse,
             int nombreDePas,
             bool afficherChaquePas
-            ) {
+) {
    for (int i = 0; i < nombreDePas; ++i) {
       deplacer(terrain, tondeuse);
       couper(terrain, tondeuse);
 
       if (afficherChaquePas) {
-         system("clear");
          afficher(terrain);
+
+         if (system("clear")) {
+            system("cls");
+         }
       }
    }
 
-   system("clear");
-
    afficher(terrain);
 }
-

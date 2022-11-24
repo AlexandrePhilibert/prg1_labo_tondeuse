@@ -12,6 +12,16 @@
 #ifndef PRG1_LABO_TONDEUSE_ANNEXE_H
 #define PRG1_LABO_TONDEUSE_ANNEXE_H
 
+/**
+ * @name random
+ *
+ * Fonction permettant de générer un nombre aléatoire entre un nombre minimal et un nombre maximal
+ *
+ * @param min valeur minimal que le nombre retourné peut avoir
+ * @param max valeur maximal que le nombre retourné peut avoir
+ * @return un nombre aléatoire dans l'interval [min, max]
+ * @throws NIL
+ */
 int random(int min, int max);
 
 #endif //PRG1_LABO_TONDEUSE_ANNEXE_H
