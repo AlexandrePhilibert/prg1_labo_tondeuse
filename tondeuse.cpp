@@ -34,10 +34,10 @@ const vector<char> CASE_TERRAIN_AFFICHAGE = {
  * Les déplacements relatifs autorisé de la tondeuse
  */
 const vector<Coordonnee> DEPLACEMENTS_AUTORISE = {
-   {-1, 0}, // Haut
-   {0, 1},  // Droite
-   {1, 0},  // Bas
-   {0, -1}  // Gauche
+   {0, -1}, // Haut
+   {1, 0},  // Droite
+   {0, 1},  // Bas
+   {-1, 0}  // Gauche
 };
 
 /**
@@ -75,11 +75,11 @@ void afficher(const Terrain& terrain) {
  * @param coordonnee : La coordonnée à vérifier sur le terrain
  * @return           : true si un obstacle est présent à la coordonnée,
  *                     false si aucun obstacle n'est présent
- * @throws           : out_of_bounds si la coordonnée est hors du terrain
+ * @throws           : out_of_range si la coordonnée est hors du terrain
  */
 bool estObstacle(const Terrain& terrain, const Coordonnee& coordonnee) {
    // Trouve le type de terrain dans la cellule choisie et test si elle est un obstacle ou pas.
-   CASE_TERRAIN cellule = terrain.at((size_t) coordonnee[0]).at((size_t) coordonnee[1]);
+   CASE_TERRAIN cellule = terrain.at((size_t) coordonnee[1]).at((size_t) coordonnee[0]);
 
    return cellule == L || cellule == X;
 }
@@ -95,7 +95,7 @@ bool estObstacle(const Terrain& terrain, const Coordonnee& coordonnee) {
  * @param terrain  : Le terrain sur lequel les coordonnées seront validées
  * @param tondeuse : La position actuelle de la tondeuse dans le terrain
  * @return         : Un vecteur contenant toutes les coordonnées valides de déplacement de la tondeuse
- * @throws         : out_of_bounds si une position hors du terrain est vérifiée
+ * @throws         : out_of_range si une position hors du terrain est vérifiée
  */
 vector<Coordonnee> deplacementsValide(const Terrain& terrain, const Tondeuse& tondeuse) {
    vector<Coordonnee> deplacements;
@@ -121,7 +121,7 @@ vector<Coordonnee> deplacementsValide(const Terrain& terrain, const Tondeuse& to
  * @param terrain  : Le terrain sur lequel la tondeuse va tenter de se déplacer
  * @param tondeuse : La position de la tondeuse
  * @return         : false si la tondeuse n'a pas de déplacement valide, true si la tondeuse s'est déplacée
- * @throws         : out_of_bounds si une position hors du terrain est vérifiée
+ * @throws         : out_of_range si une position hors du terrain est vérifiée
  */
 bool deplacer(const Terrain& terrain, Tondeuse& tondeuse) {
    vector<Coordonnee> deplacements = deplacementsValide(terrain, tondeuse);
@@ -151,7 +151,7 @@ bool deplacer(const Terrain& terrain, Tondeuse& tondeuse) {
  * @throws         : out_of_range si la position de la tondeuse est hors du terrain
  */
 void couper(Terrain& terrain, Tondeuse& tondeuse) {
-   terrain.at((size_t) tondeuse[0]).at((size_t) tondeuse[1]) = C;
+   terrain.at((size_t) tondeuse[1]).at((size_t) tondeuse[0]) = C;
 }
 
 void tondre(Terrain& terrain,

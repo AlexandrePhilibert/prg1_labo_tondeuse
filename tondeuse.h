@@ -32,7 +32,7 @@ enum CASE_TERRAIN {L, X, H, C};
  */
 using Terrain = std::vector<std::vector<CASE_TERRAIN>>;
 /**
- * Une tondeuse est une coordonnée y, x sur un terrain.
+ * Une tondeuse est une coordonnée x et y sur un terrain.
  */
 using Tondeuse = Coordonnee;
 
@@ -41,7 +41,7 @@ using Tondeuse = Coordonnee;
 *
 * Tonds le terrain à l'aide d'une tondeuse pour un certains nombre de pas.
 *
-* @param terrain           :
+* @param terrain           : Terrain sur lequel la tondeuse se déplace
 * @param tondeuse          : La position initiale de la tondeuse sur le terrain
 * @param nombreDePas       : Nombre de pas effectuer par la tondeuse. 1 pas = 1 déplacement
 * @param afficherChaquePas : Affiche le terrain après chaque pas effectuer par la tondeuse
