@@ -38,7 +38,7 @@ using Tondeuse = Coordonnee;
 * @param tondeuse          : La position initiale de la tondeuse sur le terrain
 * @param nombreDePas       : Nombre de pas effectuer par la tondeuse. 1 pas = 1 déplacement
 * @param afficherChaquePas : Affiche le terrain après chaque pas effectuer par la tondeuse
-* @throws                  : out_of_bounds si une position hors du terrain est vérifiée
+* @throws                  : out_of_range si une position hors du terrain est vérifiée
 * @return                  : void
 */
 void tondre(Terrain& terrain,

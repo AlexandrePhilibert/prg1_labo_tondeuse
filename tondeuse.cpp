@@ -34,10 +34,10 @@ const vector<char> CELLULE = {
  * Les déplacements relatifs autorisé de la tondeuse
  */
 const vector<Coordonnee> DEPLACEMENTS_AUTORISE = {
-   {0, -1}, // Haut
-   {1, 0},  // Droite
-   {0, 1},  // Bas
-   {-1, 0}  // Gauche
+   {-1, 0}, // Haut
+   {0, 1},  // Droite
+   {1, 0},  // Bas
+   {0, -1}  // Gauche
 };
 
 /**
@@ -94,7 +94,10 @@ vector<Coordonnee> deplacementsValide(const Terrain& terrain, const Tondeuse& to
    vector<Coordonnee> deplacements;
 
    for (Coordonnee coordonnee : DEPLACEMENTS_AUTORISE) {
+      // Transforme une coordonnée relative en coordonnée du terrain.
       Coordonnee deplacement = addition(tondeuse, coordonnee);
+
+      // Si le déplacement est valide (pas d'obstacle), l'ajoute à la liste des déplacements valide
       if (!estObstacle(terrain, deplacement)) {
          deplacements.push_back(deplacement);
       }
@@ -116,10 +119,12 @@ vector<Coordonnee> deplacementsValide(const Terrain& terrain, const Tondeuse& to
 bool deplacer(const Terrain& terrain, Tondeuse& tondeuse) {
    vector<Coordonnee> deplacements = deplacementsValide(terrain, tondeuse);
 
+   // La tondeuse est bloquée des quatre cotés, aucun déplacement ne peut être effectué.
    if (deplacements.empty()) {
       return false;
    }
 
+   // Déplace la tondeuse parmi les possibilités de déplacements valide.
    Coordonnee deplacement = deplacements[(size_t) random(0, (int) (deplacements.size() - 1))];
    tondeuse[0] = deplacement[0];
    tondeuse[1] = deplacement[1];
@@ -150,6 +155,7 @@ void tondre(Terrain& terrain,
       deplacer(terrain, tondeuse);
       couper(terrain, tondeuse);
 
+      // Affiche le terrain après chaque déplacement de la tondeuse
       if (afficherChaquePas) {
          afficher(terrain);
 
@@ -159,5 +165,6 @@ void tondre(Terrain& terrain,
       }
    }
 
+   // Affiche le terrain final lorsque la tondeuse à fini de tondre
    afficher(terrain);
 }

@@ -9,20 +9,16 @@
 // Standard C++   : C++ 20
 // -----------------------------------------------------------------------------------------------
 
-#include <cstdlib> // srand
-#include <ctime>   // time pour srand
+#include <random>
+
+using namespace std;
 
 // Repris de la démo : https://github.com/gmbreguet/PRG1_DEMO/blob/dccd145b3e99101c98de2d9a87ff05db386e2500/04_Fonctions/04_static_srand.cpp#L36
-int random (int min,
-            int max) {
-
-   // initialiser une seule fois le générateur
-   static bool first = true;
-   if (first) {
-      srand ((unsigned)time (NULL));
-      first = false;
-   }
+int random (int min, int max) {
+   random_device                  rand_dev;
+   default_random_engine          generator(rand_dev());
+   uniform_int_distribution<int>  distr(min, max);
 
    // une valeur entre min et max compris
-   return (rand() % (max-min+1) ) + min;
+   return distr(generator);
 }

@@ -4,14 +4,14 @@
 #include <array>
 
 /**
- * Une cordonnée est constituée des coordonnées x et y, x en position 0 et y en position 1.
+ * Une cordonnée est constituée des coordonnées x et y, y en position 0 et x en position 1
  */
 using Coordonnee = std::array<int, 2>;
 
 /**
  * @name addition
  *
- * Additionne les positions x et y de deux coordonnées.
+ * Additionne les positions y et x de deux coordonnées.
  *
  * @param c1 : Première coordonnée
  * @param c2 : Deuxième coordonnée
