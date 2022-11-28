@@ -24,9 +24,9 @@
  * H = herbe haute
  * C = herbe coupée
  */
-enum TERRAIN {L, X, H, C};
+enum CASE_TERRAIN {L, X, H, C};
 
-using Terrain = std::vector<std::vector<TERRAIN>>;
+using Terrain = std::vector<std::vector<CASE_TERRAIN>>;
 using Tondeuse = Coordonnee;
 
 /**

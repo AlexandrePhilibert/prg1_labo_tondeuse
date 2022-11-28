@@ -23,7 +23,7 @@ using namespace std;
  * Caractère représentant une cellule du terrain lors de l'affichage.
  * L'ordre des éléments est en relation avec l'encodage du terrain (voir tondeuse.h)
  */
-const vector<char> CELLULE = {
+const vector<char> CASE_TERRAIN_AFFICHAGE = {
    '#', // limite
    'X', // obstacle
    '~', // herbe haute
@@ -41,6 +41,11 @@ const vector<Coordonnee> DEPLACEMENTS_AUTORISE = {
 };
 
 /**
+ * Largeur d'une case à l'affichage du terrain
+ */
+const int LARGEUR_CASE = 2;
+
+/**
  * @name afficher
  *
  * Affiche le terrain à l'aide du tableau de correspondance entre le type de cellule et
@@ -51,9 +56,10 @@ const vector<Coordonnee> DEPLACEMENTS_AUTORISE = {
  * @return        : NIL
  */
 void afficher(const Terrain& terrain) {
-   for (const vector<TERRAIN>& l : terrain) {
-      for(TERRAIN c : l) {
-         cout << left << setw(2) << CELLULE[c];
+   for (const vector<CASE_TERRAIN>& l : terrain) {
+      for(CASE_TERRAIN c : l) {
+         // Affiche le caractère lié à l'élément présent à l'emplacement du terrain.
+         cout << left << setw(LARGEUR_CASE) << CASE_TERRAIN_AFFICHAGE[c];
       }
       cout << endl;
    }
@@ -67,12 +73,13 @@ void afficher(const Terrain& terrain) {
  *
  * @param terrain    : Le terrain sur lequel vérifier si la coordonnée est un obstacle
  * @param coordonnee : La coordonnée à vérifier sur le terrain
- * @return           : true si un obstacle est présent à la coordonnée, false si aucun obstacle n'est présent
+ * @return           : true si un obstacle est présent à la coordonnée,
+ *                     false si aucun obstacle n'est présent
  * @throws           : out_of_bounds si la coordonnée est hors du terrain
  */
 bool estObstacle(const Terrain& terrain, const Coordonnee& coordonnee) {
    // Trouve le type de terrain dans la cellule choisie et test si elle est un obstacle ou pas.
-   TERRAIN cellule = terrain.at((size_t) coordonnee[0]).at((size_t) coordonnee[1]);
+   CASE_TERRAIN cellule = terrain.at((size_t) coordonnee[0]).at((size_t) coordonnee[1]);
 
    return cellule == L || cellule == X;
 }
@@ -159,8 +166,9 @@ void tondre(Terrain& terrain,
       if (afficherChaquePas) {
          afficher(terrain);
 
-         if (system("clear")) {
-            system("cls");
+         // Efface le terminal pour Windows et Linux / Mac
+         if (system("cls")) {
+            system("clear");
          }
       }
    }
