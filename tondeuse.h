@@ -26,7 +26,14 @@
  */
 enum CASE_TERRAIN {L, X, H, C};
 
+/**
+ * Un terrain est représenté par des cases contenant des éléments
+ * tel que des limites, obstacles, herbe haute et herbe coupée.
+ */
 using Terrain = std::vector<std::vector<CASE_TERRAIN>>;
+/**
+ * Une tondeuse est une coordonnée y, x sur un terrain.
+ */
 using Tondeuse = Coordonnee;
 
 /**

@@ -2,7 +2,7 @@
 // Fichier        : annexe.h
 // Auteur(s)      : Behrmann Urs & Philibert Alexandre
 // Date           : 2022-11-22
-// But            :
+// But            : Fonction permettant de générer un nombre aléatoire entre un min et un max.
 // Modifications  : NIL
 // Remarque(s)    :
 // Compilateur    : g++ 11.2.0

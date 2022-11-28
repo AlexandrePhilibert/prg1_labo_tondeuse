@@ -132,7 +132,8 @@ bool deplacer(const Terrain& terrain, Tondeuse& tondeuse) {
    }
 
    // Déplace la tondeuse parmi les possibilités de déplacements valide.
-   Coordonnee deplacement = deplacements[(size_t) random(0, (int) (deplacements.size() - 1))];
+   int positionAleatoire = random(0, (int) (deplacements.size() - 1));
+   Coordonnee deplacement = deplacements[(size_t) positionAleatoire];
    tondeuse[0] = deplacement[0];
    tondeuse[1] = deplacement[1];
 

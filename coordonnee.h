@@ -1,3 +1,15 @@
+// -----------------------------------------------------------------------------------------------
+// Fichier        : coordonnee.h
+// Auteur(s)      : Behrmann Urs & Philibert Alexandre
+// Date           : 2022-11-28
+// But            : Déclaration d'une coordonnée, fonction permettant d'additionner deux
+//                  coordonnées.
+// Modifications  : NIL
+// Remarque(s)    :
+// Compilateur    : g++ 11.2.0
+// Standard C++   : C++ 20
+// -----------------------------------------------------------------------------------------------
+
 #ifndef PRG1_LABO_TONDEUSE_COORDONNEE_H
 #define PRG1_LABO_TONDEUSE_COORDONNEE_H
 
