@@ -10,9 +10,10 @@
 // Standard C++   : C++ 20
 // -----------------------------------------------------------------------------------------------
 
-#include <iostream>
-#include <iomanip>
-#include <vector>
+#include <iostream>    // setw
+#include <iomanip>     // cout
+#include <vector>      // vector
+#include <limits>      // numeric_limits
 #include "tondeuse.h"
 #include "coordonnee.h"
 #include "annexe.h"
@@ -176,4 +177,7 @@ void tondre(Terrain& terrain,
 
    // Affiche le terrain final lorsque la tondeuse à fini de tondre
    afficher(terrain);
+
+   cout << "Pressez ENTER pour quitter";
+   cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
